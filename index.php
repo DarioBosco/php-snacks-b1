@@ -20,6 +20,9 @@ Se tutto è ok stampare “Accesso riuscito”, altrimenti “Accesso negato”
 Creare un array di array. Ogni array figlio avrà come chiave una data in questo formato: DD-MM-YYYY es 01-01-2007 e come valore
 un array di post associati a quella data. Stampare ogni data con i relativi post.
 Qui l’array di esempio: https://www.codepile.net/pile/R2K5d68z
+
+## Snack 4
+Creare un array con 15 numeri casuali ( da 1 a 100), tenendo conto che l’array non dovrà contenere lo stesso numero più di una volta
 */
 
 //Snack 1
@@ -129,6 +132,7 @@ $posts = [
 	?>
 	<hr>
 
+	<h2>Snack 3</h2>
 	<ul>
 		<?php 
 		foreach ($posts as $key => $value) {
@@ -150,7 +154,17 @@ $posts = [
 		
 		?>
 	</ul>
+	<hr>
+
+	<h2>Snack 4</h2>
+	<?php 
+	$amount = 15;
+	$numbers = range(1, 100);
+	shuffle($numbers);
+	array_splice($numbers, $amount, count($numbers));
+	foreach ($numbers as $number) {
+		echo $number . "<br>";
+	}
+	?>
 </body>
 </html>
-
-
