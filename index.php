@@ -23,6 +23,9 @@ Qui l’array di esempio: https://www.codepile.net/pile/R2K5d68z
 
 ## Snack 4
 Creare un array con 15 numeri casuali ( da 1 a 100), tenendo conto che l’array non dovrà contenere lo stesso numero più di una volta
+
+## Snack 5
+Prendere un paragrafo abbastanza lungo, contenente diverse frasi. Prendere il paragrafo e suddividerlo in tanti paragrafi. Ogni punto un nuovo paragrafo.
 */
 
 //Snack 1
@@ -181,5 +184,20 @@ $posts = [
 	}
 	var_dump($numbers)
 	?>
+	<hr>
+
+	<h2>Snack 5</h2>
+
+	<?php 
+		$text = 'Prendere un paragrafo abbastanza lungo, contenente diverse frasi. Prendere il paragrafo e suddividerlo in tanti paragrafi. Ogni punto un nuovo paragrafo.';
+		$paragraphs = explode('. ', $text,);
+
+		echo 'Stinga originale : ' . $text;
+		foreach ($paragraphs as $paragraph) {
+			echo '<p>' . $paragraph . '</p>';
+		}
+
+		var_dump($paragraphs)
+		?>
 </body>
 </html>
