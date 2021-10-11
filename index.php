@@ -158,13 +158,28 @@ $posts = [
 
 	<h2>Snack 4</h2>
 	<?php 
+	/* 
+	Metodo alternativo
+
 	$amount = 15;
 	$numbers = range(1, 100);
 	shuffle($numbers);
 	array_splice($numbers, $amount, count($numbers));
 	foreach ($numbers as $number) {
 		echo $number . "<br>";
+	} */
+
+	$numbers = [];
+	$amount = 15;
+	
+	while (count($numbers) < $amount) {
+		$randomInt = rand(1,100);
+		if (!in_array($randomInt, $numbers)) {
+			$numbers[] = $randomInt;
+		}
+
 	}
+	var_dump($numbers)
 	?>
 </body>
 </html>
