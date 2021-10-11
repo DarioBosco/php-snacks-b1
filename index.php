@@ -1,5 +1,28 @@
 <?php 
 
+/* 
+Snack 1
+Creiamo un array contenente le partite di basket di un’ipotetica tappa
+del calendario.
+Ogni array avrà una squadra di casa e una squadra ospite,
+punti fatti dalla squadra di casa e punti fatti dalla squadra ospite.
+Stampiamo a schermo tutte le partite con questo schema.
+Olimpia Milano - Cantù | 55-60
+
+## Snack 2
+Passare come parametri GET name, mail e age e verificare
+(cercando i metodi che non conosciamo nella documentazione) che name
+sia più lungo di 3 caratteri,
+che mail contenga un punto e una chiocciola e che age sia un numero.
+Se tutto è ok stampare “Accesso riuscito”, altrimenti “Accesso negato”
+
+## Snack 3
+Creare un array di array. Ogni array figlio avrà come chiave una data in questo formato: DD-MM-YYYY es 01-01-2007 e come valore
+un array di post associati a quella data. Stampare ogni data con i relativi post.
+Qui l’array di esempio: https://www.codepile.net/pile/R2K5d68z
+*/
+
+//Snack 1
 $matches = [
 	[
 		"homeTeam" => "Squadra 1",
@@ -27,10 +50,51 @@ $matches = [
 	]
 ]; 
 
+//Snack 2
 $name = $_GET["name"];
 $mail = $_GET["mail"];
 $age = $_GET["age"];
 
+//Snack 3
+$posts = [
+
+    '10/01/2019' => [
+        [
+            'title' => 'Post 1',
+            'author' => 'Michele Papagni',
+            'text' => 'Testo post 1'
+        ],
+        [
+            'title' => 'Post 2',
+            'author' => 'Michele Papagni',
+            'text' => 'Testo post 2'
+        ],
+    ],
+    '10/02/2019' => [
+        [
+            'title' => 'Post 3',
+            'author' => 'Michele Papagni',
+            'text' => 'Testo post 3'
+        ]
+    ],
+    '15/05/2019' => [
+        [
+            'title' => 'Post 4',
+            'author' => 'Michele Papagni',
+            'text' => 'Testo post 4'
+        ],
+        [
+            'title' => 'Post 5',
+            'author' => 'Michele Papagni',
+            'text' => 'Testo post 5'
+        ],
+        [
+            'title' => 'Post 6',
+            'author' => 'Michele Papagni',
+            'text' => 'Testo post 6'
+        ]
+    ],
+];
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +106,6 @@ $age = $_GET["age"];
 	<title>Document</title>
 </head>
 <body>
-	<p>
 
 	<h2>Snack 1</h2>
 	<?php 
@@ -65,7 +128,28 @@ $age = $_GET["age"];
 	};
 	?>
 	<hr>
-	</p>
+
+	<ul>
+		<?php 
+		foreach ($posts as $key => $value) {
+			echo 
+			'<li>' 
+				. $key 
+				.'<ul>'; 
+					foreach ($value as $post) {
+						echo '<li>'
+						.'Titolo: '  .$post["title"] .'<br>'
+						.'Autore: '  .$post["author"] .'<br>'
+						.'Testo: '  .$post["text"] .'<br>'
+						.'<hr>';
+					}
+					echo '</li>' 
+				.'</ul>' 
+			.'</li>' ;
+		};
+		
+		?>
+	</ul>
 </body>
 </html>
 
