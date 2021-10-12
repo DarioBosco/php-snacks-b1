@@ -1,5 +1,7 @@
 <?php
 
+require __DIR__ . './functions.php';
+
 /* 
 Snack 1
 Creiamo un array contenente le partite di basket di un’ipotetica tappa
@@ -29,6 +31,9 @@ Prendere un paragrafo abbastanza lungo, contenente diverse frasi. Prendere il pa
 
 ## Snack 6
 Utilizzare questo array: https://pastebin.com/CkX3680A. Includerlo in un file database.php... Stampiamo poi il nostro array mettendo gli insegnanti in un rettangolo grigio e i PM in un rettangolo verde.
+
+## Snack 7
+Creare un array contenente qualche alunno di un’ipotetica classe. Ogni alunno avrà Nome, Cognome e un array contenente i suoi voti scolastici. Stampare Nome, Cognome e la media dei voti di ogni alunno.qe
 */
 
 //Snack 1
@@ -205,27 +210,42 @@ $posts = [
 	?>
 
 	<hr>
-
 	<h2>Snack 6</h2>
 
 	<?php
 	include __DIR__ . './database.php';
 	foreach ($db as $key => $job) {
-		echo '<ul class="';
-		echo $key;
-		echo '">';
+		echo '<ul class="' . $key . '">';
 		foreach ($job as $employee) {
-			echo  '<br>'
-				. '<li>'
+			echo '<li>'
 				. 'Nome: ' . $employee["name"]
 				. '<br>'
 				. 'Cognome: ' . $employee["lastname"]
-				. '</li>'
-				. '<br>';
+				. '</li>';
 		}
 		echo '</ul>';
 	}
 	?>
+
+	<hr>
+
+	<h2>Snack 7</h2>
+
+	<?
+	include __DIR__ . './class.php';
+	foreach ($class as $key => $student) {
+		echo '<ul>';
+		echo 'Studente: ' . $key;
+		echo '<br>';
+
+		foreach ($student as $votes) {
+			echo 'Media Voti: ' . getAverage($votes);
+		}
+		echo "</ul>";
+	}
+
+	?>
+
 </body>
 
 </html>
