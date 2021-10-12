@@ -235,12 +235,11 @@ $posts = [
 	include __DIR__ . './class.php';
 	foreach ($class as $key => $student) {
 		echo '<ul>';
-		echo 'Studente: ' . $key;
+		echo 'Nome: ' . $student['nome'];
 		echo '<br>';
-
-		foreach ($student as $votes) {
-			echo 'Media Voti: ' . getAverage($votes);
-		}
+		echo 'Cognome: ' . $student['cognome'];
+		echo '<br>';
+		echo 'Media Voti: ' . getAverage($student['voti']);
 		echo "</ul>";
 	}
 

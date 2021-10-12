@@ -1,19 +1,29 @@
 <?php
 
 $class = [
-	'Dario' => [
+	[
+		'nome' => 'Dario',
+		'cognome' => 'Bosco',
 		'voti' => [6, 4, 7, 8, 10],
 	],
-	'Alberto' => [
+	[
+		'nome' => 'Alberto',
+		'cognome' => 'Gaia',
 		'voti' => [4, 5, 10, 8, 7],
 	],
-	'Edoardo' => [
+	[
+		'nome' => 'Edoardo',
+		'cognome' => 'Ercolino',
 		'voti' => [5, 9, 5, 8, 4],
 	],
-	'Vlad' => [
-		'voti' => [7, 5, 8, 3, 6],
+	[
+		'nome' => 'Vlad',
+		'cognome' => 'Andrei',
+		'voti' => [4, 5, 5, 3, 6],
 	],
-	'Eduardo' => [
+	[
+		'nome' => 'Eduardo',
+		'cognome' => 'Grazioli',
 		'voti' => [5, 5, 8, 7, 9],
 	],
 ];
