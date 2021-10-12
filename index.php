@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /* 
 Snack 1
@@ -26,6 +26,9 @@ Creare un array con 15 numeri casuali ( da 1 a 100), tenendo conto che l’array
 
 ## Snack 5
 Prendere un paragrafo abbastanza lungo, contenente diverse frasi. Prendere il paragrafo e suddividerlo in tanti paragrafi. Ogni punto un nuovo paragrafo.
+
+## Snack 6
+Utilizzare questo array: https://pastebin.com/CkX3680A. Includerlo in un file database.php... Stampiamo poi il nostro array mettendo gli insegnanti in un rettangolo grigio e i PM in un rettangolo verde.
 */
 
 //Snack 1
@@ -54,7 +57,7 @@ $matches = [
 		"homePoints" => "56",
 		"guestPoints" => "55"
 	]
-]; 
+];
 
 //Snack 2
 $name = $_GET["name"];
@@ -64,61 +67,63 @@ $age = $_GET["age"];
 //Snack 3
 $posts = [
 
-    '10/01/2019' => [
-        [
-            'title' => 'Post 1',
-            'author' => 'Michele Papagni',
-            'text' => 'Testo post 1'
-        ],
-        [
-            'title' => 'Post 2',
-            'author' => 'Michele Papagni',
-            'text' => 'Testo post 2'
-        ],
-    ],
-    '10/02/2019' => [
-        [
-            'title' => 'Post 3',
-            'author' => 'Michele Papagni',
-            'text' => 'Testo post 3'
-        ]
-    ],
-    '15/05/2019' => [
-        [
-            'title' => 'Post 4',
-            'author' => 'Michele Papagni',
-            'text' => 'Testo post 4'
-        ],
-        [
-            'title' => 'Post 5',
-            'author' => 'Michele Papagni',
-            'text' => 'Testo post 5'
-        ],
-        [
-            'title' => 'Post 6',
-            'author' => 'Michele Papagni',
-            'text' => 'Testo post 6'
-        ]
-    ],
+	'10/01/2019' => [
+		[
+			'title' => 'Post 1',
+			'author' => 'Michele Papagni',
+			'text' => 'Testo post 1'
+		],
+		[
+			'title' => 'Post 2',
+			'author' => 'Michele Papagni',
+			'text' => 'Testo post 2'
+		],
+	],
+	'10/02/2019' => [
+		[
+			'title' => 'Post 3',
+			'author' => 'Michele Papagni',
+			'text' => 'Testo post 3'
+		]
+	],
+	'15/05/2019' => [
+		[
+			'title' => 'Post 4',
+			'author' => 'Michele Papagni',
+			'text' => 'Testo post 4'
+		],
+		[
+			'title' => 'Post 5',
+			'author' => 'Michele Papagni',
+			'text' => 'Testo post 5'
+		],
+		[
+			'title' => 'Post 6',
+			'author' => 'Michele Papagni',
+			'text' => 'Testo post 6'
+		]
+	],
 ];
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
 	<title>Document</title>
 </head>
+
 <body>
 
 	<h2>Snack 1</h2>
-	<?php 
-	for ($i=0; $i < count($matches); $i++) { 
+	<?php
+	for ($i = 0; $i < count($matches); $i++) {
 		$element = $matches[$i];
-		echo $element["homeTeam"] ." - " .$element["guestTeam"] ." | " .$element["homePoints"] ."-" .$element["guestPoints"] ."<br>";
-	
+		echo $element["homeTeam"] . " - " . $element["guestTeam"] . " | " . $element["homePoints"] . "-" . $element["guestPoints"] . "<br>";
 	};
 	?>
 
@@ -126,7 +131,7 @@ $posts = [
 
 	<h2>Snack 2</h2>
 
-	<?php 
+	<?php
 	if (strlen($name) >= 3 && strpos($mail, '@') !== false && strpos($mail, '.') !== false && is_numeric($age)) {
 		echo "Accesso Riuscito";
 	} else {
@@ -137,30 +142,30 @@ $posts = [
 
 	<h2>Snack 3</h2>
 	<ul>
-		<?php 
+		<?php
 		foreach ($posts as $key => $value) {
-			echo 
-			'<li>' 
-				. $key 
-				.'<ul>'; 
-					foreach ($value as $post) {
-						echo '<li>'
-						.'Titolo: '  .$post["title"] .'<br>'
-						.'Autore: '  .$post["author"] .'<br>'
-						.'Testo: '  .$post["text"] .'<br>'
-						.'<hr>';
-					}
-					echo '</li>' 
-				.'</ul>' 
-			.'</li>' ;
+			echo
+			'<li>'
+				. $key
+				. '<ul>';
+			foreach ($value as $post) {
+				echo '<li>'
+					. 'Titolo: '  . $post["title"] . '<br>'
+					. 'Autore: '  . $post["author"] . '<br>'
+					. 'Testo: '  . $post["text"] . '<br>'
+					. '<hr>';
+			}
+			echo '</li>'
+				. '</ul>'
+				. '</li>';
 		};
-		
+
 		?>
 	</ul>
 	<hr>
 
 	<h2>Snack 4</h2>
-	<?php 
+	<?php
 	/* 
 	Metodo alternativo
 
@@ -174,13 +179,12 @@ $posts = [
 
 	$numbers = [];
 	$amount = 15;
-	
+
 	while (count($numbers) < $amount) {
-		$randomInt = rand(1,100);
+		$randomInt = rand(1, 100);
 		if (!in_array($randomInt, $numbers)) {
 			$numbers[] = $randomInt;
 		}
-
 	}
 	var_dump($numbers)
 	?>
@@ -188,16 +192,38 @@ $posts = [
 
 	<h2>Snack 5</h2>
 
-	<?php 
-		$text = 'Prendere un paragrafo abbastanza lungo, contenente diverse frasi. Prendere il paragrafo e suddividerlo in tanti paragrafi. Ogni punto un nuovo paragrafo.';
-		$paragraphs = explode('. ', $text,);
+	<?php
+	$text = 'Prendere un paragrafo abbastanza lungo, contenente diverse frasi. Prendere il paragrafo e suddividerlo in tanti paragrafi. Ogni punto un nuovo paragrafo. ';
+	$paragraphs = explode('. ', $text,);
 
-		echo 'Stinga originale : ' . $text;
-		foreach ($paragraphs as $paragraph) {
-			echo '<p>' . $paragraph . '</p>';
+	echo 'Stinga originale : ' . $text;
+	foreach ($paragraphs as $paragraph) {
+		echo '<p>' . $paragraph . '</p>';
+	}
+
+	var_dump($paragraphs)
+	?>
+
+	<hr>
+
+	<h2>Snack 6</h2>
+
+	<?php
+	include __DIR__ . './database.php';
+	foreach ($db as $key => $job) {
+		echo '<ul class="';
+		echo $key;
+		echo '">';
+		foreach ($job as $employee) {
+			echo '<li>'
+				. 'Firstname: ' . $employee["name"]
+				. '<br>'
+				. 'Lastname: ' . $employee["lastname"]
+				. '</li>';
 		}
-
-		var_dump($paragraphs)
-		?>
+		echo '</ul>';
+	}
+	?>
 </body>
+
 </html>
