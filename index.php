@@ -215,11 +215,13 @@ $posts = [
 		echo $key;
 		echo '">';
 		foreach ($job as $employee) {
-			echo '<li>'
-				. 'Firstname: ' . $employee["name"]
+			echo  '<br>'
+				. '<li>'
+				. 'Nome: ' . $employee["name"]
 				. '<br>'
-				. 'Lastname: ' . $employee["lastname"]
-				. '</li>';
+				. 'Cognome: ' . $employee["lastname"]
+				. '</li>'
+				. '<br>';
 		}
 		echo '</ul>';
 	}
